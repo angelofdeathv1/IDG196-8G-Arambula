@@ -14,16 +14,12 @@ class Palindrome {
         var tmp1: Int = number
         var reverse = 0
 
-        while (tmp1 != 0) {
+        while (tmp1 > reverse) {
             reverse = reverse * 10 + tmp1 % 10
 
             tmp1 /= 10
         }
 
-        if (number == reverse) {
-            return true
-        }
-
-        return false
+        return (tmp1 == reverse || tmp1 == reverse / 10)
     }
 }
