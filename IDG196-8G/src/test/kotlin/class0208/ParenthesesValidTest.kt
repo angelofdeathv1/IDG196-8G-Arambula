@@ -78,4 +78,10 @@ class ParenthesesValidTest {
         val string = "{[(){}]}"
         assertTrue(parentheses.isValid(string))
     }
+
+    @Test
+    fun `returns false when elements are combined and are unbalanced`() {
+        val string = "{[(){}]}("
+        assertFalse(parentheses.isValid(string))
+    }
 }
