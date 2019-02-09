@@ -8,8 +8,8 @@ class ReverseIntegerTest {
 
     @Test
     fun testIfReversesPositiveNumber() {
-        val value = 1234
-        val expected = 4321
+        val value = 1534236469
+        val expected = 9646324351
 
         val actual = reverseInteger.reverseInteger(value)
 

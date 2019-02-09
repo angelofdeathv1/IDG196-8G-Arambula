@@ -10,6 +10,10 @@ class ReverseInteger {
             digit = tmp1 % 10
             tmp1 /= 10
 
+            if (reverse >= Int.MAX_VALUE / 10) {
+                return 0
+            }
+
             reverse = reverse * 10 + digit
         }
 
