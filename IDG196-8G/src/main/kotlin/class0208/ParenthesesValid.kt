@@ -11,7 +11,7 @@ class ParenthesesValid {
         var st: Stack<Char> = Stack()
 
         if (string.isEmpty() || string.isBlank()) {
-            return false
+            return true
         }
 
         for (index in string.indices) {
@@ -29,12 +29,14 @@ class ParenthesesValid {
                 if (st.empty()) {
                     return false
                 }
+
                 val openChar = st.pop()
-                if (current == '(' && openChar != ')') {
+
+                if (openChar == '(' && current != ')') {
                     return false
-                } else if (current == '[' && openChar != ']') {
+                } else if (openChar == '[' && current != ']') {
                     return false
-                } else if (current == '{' && openChar != '}') {
+                } else if (openChar == '{' && current != '}') {
                     return false
                 }
             }

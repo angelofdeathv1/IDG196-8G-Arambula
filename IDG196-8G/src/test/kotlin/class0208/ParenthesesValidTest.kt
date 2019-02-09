@@ -8,20 +8,26 @@ class ParenthesesValidTest {
     private val parentheses = ParenthesesValid()
 
     @Test
-    fun `returns false when an empty string is in the input`() {
+    fun `returns true when an empty string is in the input`() {
         val string = ""
-        assertFalse(parentheses.isValid(string))
+        assertTrue(parentheses.isValid(string))
     }
 
     @Test
-    fun `returns false when a blank string is in the input`() {
+    fun `returns true when a blank string is in the input`() {
         val string = "         "
-        assertFalse(parentheses.isValid(string))
+        assertTrue(parentheses.isValid(string))
     }
 
     @Test
     fun `returns false when an invalid character is in the input`() {
         val string = "*@()"
+        assertFalse(parentheses.isValid(string))
+    }
+
+    @Test
+    fun `returns false when starts with RP ends with LB`() {
+        val string = "(]"
         assertFalse(parentheses.isValid(string))
     }
 
