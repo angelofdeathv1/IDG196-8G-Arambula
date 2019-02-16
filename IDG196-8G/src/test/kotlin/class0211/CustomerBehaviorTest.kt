@@ -12,26 +12,16 @@ class CustomerBehaviorTest {
     private val cardExpire = "12/20"
 
     private val payment = Payment(cardDigits, cardCSV, cardExpire)
-    private var payments: ArrayList<Payment> = arrayListOf()
 
     private var customer = Customer(
         "John Wayne",
-        "jwayne@example.com",
-        payments,
-        null
+        "jwayne@example.com"
     )
 
     @Before
     fun setup() {
         println("its a me setup")
-        payments = arrayListOf()
-
-        customer = Customer(
-            "John Wayne",
-            "jwayne@example.com",
-            payments,
-            null
-        )
+        customer.payments.clear()
     }
 
     @After
@@ -47,7 +37,7 @@ class CustomerBehaviorTest {
 
     @Test
     fun `can't remove a payment that does not exist`() {
-        payments.add(payment)
+        customer.payments.add(payment)
 
         val customerBehavior = CustomerBehavior(customer)
         val nonExistingPayment = Payment("10291019202920292", "132", "10/10")
@@ -56,7 +46,7 @@ class CustomerBehaviorTest {
 
     @Test
     fun `remove a payment that exists`() {
-        payments.add(payment)
+        customer.payments.add(payment)
 
         val customerBehavior = CustomerBehavior(customer)
         assertTrue(customerBehavior.removePayment(payment))
