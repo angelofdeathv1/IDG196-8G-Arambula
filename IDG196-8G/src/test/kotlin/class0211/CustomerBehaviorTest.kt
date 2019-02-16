@@ -12,8 +12,7 @@ class CustomerBehaviorTest {
     private val cardExpire = "12/20"
 
     private val payment = Payment(cardDigits, cardCSV, cardExpire)
-
-    private var customer = Customer(
+    private val customer = Customer(
         "John Wayne",
         "jwayne@example.com"
     )
