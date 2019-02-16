@@ -33,9 +33,9 @@ class ParenthesesValid {
                 val openChar = st.pop()
 
                 when (openChar) {
-                    '(' -> if (current != ')') return false
-                    '[' -> if (current != ']') return false
-                    '{' -> if (current != '}') return false
+                    '(' -> (current != ')')
+                    '[' -> (current != ']')
+                    '{' -> (current != '}')
                 }
 
             }
