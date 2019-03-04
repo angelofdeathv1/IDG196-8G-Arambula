@@ -28,17 +28,14 @@ class ChangeMachine(val coins: Array<Int>) {
             return emptyCoins
         }
 
-        for ((index, value) in sortedCoins.withIndex()) {
-            if (remaining > value) {
-                remaining = amount % value
-                changeCoins[value] = amount / value
-                offsetIndex = index
-                break
-            }
-        }
+        val lowerSortedCoins = sortedCoins.filter { it <= remaining }
 
-        for (i in offsetIndex + 1 until sortedCoins.size) {
-            val value = sortedCoins[i]
+        val highCoin = lowerSortedCoins[0]
+        remaining %= highCoin
+        changeCoins[highCoin] = amount / highCoin
+
+        for (i in 1 until lowerSortedCoins.size) {
+            val value = lowerSortedCoins[i]
 
             changeCoins[value] = remaining / value
             remaining = amount % value
