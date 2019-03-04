@@ -7,7 +7,6 @@ class ChangeMachine(val coins: Array<Int>) {
         val changeCoins = getChangeMap(sortedCoins)
         val emptyCoins = changeCoins.toMap()
 
-        var offsetIndex = 0
         var remaining = amount
 
         if (remaining <= 0) {
@@ -18,7 +17,7 @@ class ChangeMachine(val coins: Array<Int>) {
             return emptyCoins
         }
 
-        val negativeCoins = sortedCoins.filter { it < 0 }
+        val negativeCoins = sortedCoins.filter { it <= 0 }
         if (negativeCoins.isNotEmpty()) {
             return emptyCoins
         }
@@ -29,16 +28,14 @@ class ChangeMachine(val coins: Array<Int>) {
         }
 
         val lowerSortedCoins = sortedCoins.filter { it <= remaining }
-
         val highCoin = lowerSortedCoins[0]
+
+        changeCoins[highCoin] = remaining / highCoin
         remaining %= highCoin
-        changeCoins[highCoin] = amount / highCoin
 
-        for (i in 1 until lowerSortedCoins.size) {
-            val value = lowerSortedCoins[i]
-
-            changeCoins[value] = remaining / value
-            remaining = amount % value
+        lowerSortedCoins.listIterator(1).forEach {
+            changeCoins[it] = remaining / it
+            remaining %= it
         }
 
         if (remaining > 0) {
