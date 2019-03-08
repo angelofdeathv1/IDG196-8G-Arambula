@@ -47,7 +47,6 @@ fun Application.module(testing: Boolean = false) {
         }
 
         get("/json/jackson") {
-            //call.respond(mapOf("hello" to "world"))
             call.respond(mapOf("root" to regresarMapa()))
         }
 
