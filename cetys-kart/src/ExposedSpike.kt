@@ -6,10 +6,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 fun main(args: Array<String>) {
     Database.connect(
-        "jdbc:sqlserver://mi-campus.cnlbrz9mbb74.us-east-2.rds.amazonaws.com\\mi-campus:1433;database=MICAMPUS",
-        "com.microsoft.sqlserver.jdbc.SQLServerDriver",
-        user = "micampus",
-        password = "password1234"
+        "", "", "", ""
     )
     transaction {
         // print sql to std-out

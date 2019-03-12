@@ -12,3 +12,10 @@ fun regresarMapa(): ArrayList<MiObjeto> {
         MiObjeto("saludante2", 10)
     )
 }
+
+fun regresarMapaAntiEstandar(): ArrayList<MiObjeto> {
+    return arrayListOf(
+        MiObjeto("Personilla1", 15),
+        MiObjeto("Personirijilla2", 20)
+    )
+}

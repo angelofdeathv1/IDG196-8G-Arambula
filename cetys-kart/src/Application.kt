@@ -54,6 +54,10 @@ fun Application.module(testing: Boolean = false) {
             call.respondText(saludarYa(), contentType = ContentType.Text.Plain)
         }
 
+        get("/mc/public/v1/alumnos/saludar2") {
+            call.respond(mapOf("root" to regresarMapaAntiEstandar()))
+        }
+
     }
 }
 
