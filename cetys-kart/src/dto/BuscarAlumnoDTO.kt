@@ -1,3 +1,3 @@
-package mx.cetys.arambula.angel
+package dto
 
 data class AlumnoDTO(val matricula: String)

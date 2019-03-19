@@ -1,6 +1,6 @@
 package mx.cetys.arambula.angel.exposed
 
-import mx.cetys.arambula.angel.AlumnoDTO
+import dto.AlumnoDTO
 import mx.cetys.arambula.angel.execSp
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.transactions.transaction

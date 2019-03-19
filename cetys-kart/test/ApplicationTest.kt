@@ -19,21 +19,10 @@ class ApplicationTest {
     }
 
     @Test
-    fun testJson() {
+    fun testHealthcheckEndpoint() {
         withTestApplication({ module(testing = true) }) {
-            handleRequest(HttpMethod.Get, "/json/jackson").apply {
+            handleRequest(HttpMethod.Get, "/api/micampus/public/v1/healthcheck").apply {
                 assertEquals(HttpStatusCode.OK, response.status())
-
-            }
-        }
-    }
-
-    @Test
-    fun testSaludarYa() {
-        withTestApplication({ module(testing = true) }) {
-            handleRequest(HttpMethod.Get, "/mc/public/v1/alumnos/saludar").apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("saludar..........YA!", response.content)
 
             }
         }

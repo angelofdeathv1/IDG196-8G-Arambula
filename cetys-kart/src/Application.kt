@@ -42,7 +42,8 @@ fun Application.module(testing: Boolean = false) {
         header(HttpHeaders.Authorization)
         header("MyCustomHeader")
         allowCredentials = true
-        anyHost() // @TODO: Don't do this in production if possible. Try to limit it.
+        //anyHost() // @TODO: Don't do this in production if possible. Try to limit it.
+        host("127.0.0.1")
     }
 
     routing {
